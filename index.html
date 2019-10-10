@@ -1,0 +1,62 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>AceLab.ca</title>
+<meta name="viewport" content="width=device-width">
+<meta name="description" content="This is the website for the AceLab. This is meant for AceLab members only">
+<meta name="author" content="Derek Lo 2017">
+<link rel="stylesheet" href="css/common_styles.css" >
+<link rel="stylesheet" href="css/font-awesome.min.css">
+<script src="js/jquery-1.11.2.min.js"></script>
+</head>
+<body>
+	<div class="video-background"> <!-- this has a randomized image for the background -->
+		<div class="video-foreground">
+			<iframe src="https://www.youtube.com/embed/videoseries?list=PL2yWPEmc_SYWp9gflXfw7Xjd0h1c6LLmD&autoplay=1&controls=0&loop=1&rel=0&showinfo=0&autohide=1&wmode=transparent&hd=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe> <!-- this is hidden below 450px for mobile devices -->
+		</div>
+	</div>
+<!-- http://codepen.io/bennettfeely/pen/wWVZAW. Changes made to javascript, css, and html by D.Lo 2017 & 2019 -->
+	<div id="nojs" class='menu closed'>
+		<a href="http://yahoo.ca"><div class='start button hoverstate button-text'>Get Started</div></a>
+	  	<a href="http://amazon.ca"><div class='data button hoverstate button-text'>Find Data</div></a>
+   		<a href="http://google.ca"><div class='tools button hoverstate button-text'>Find Tools</div></a>
+	  
+	  	<a href="http://mcin-cnim.ca"><div class='faq button hoverstate button-text'>FAQ</div></a>
+	  	<a href="http://ebay.ca"><div class='support button hoverstate button-text'>IT Support</div></a>
+  	<div class='main button'>Menu</div>
+	</div>
+	<div id="nojsmenu">Please enamble Javascript</div>
+	<div class="branding"><div class="ace">ACE</div></strong><div class="lab">lab</div></div>
+
+<!-- this is a note to self, describing the logic -->
+<!-- when class .main is clicked .menu is toggled to have/not have class .closed -->
+<!-- if .menu also includes .closed, set the text of main.button to Menu-->
+<!-- else, set the text of main.button to Close-->
+<script type="text/javascript">
+$(".main").mousedown(function(){ 
+	$(".menu").toggleClass("closed");
+	
+	if($(".menu").hasClass("closed")) {
+		$(".main.button").text("Menu");
+	} else {
+		$(".main.button").text("Close");
+	}
+})
+</script>
+
+<script type="text/javascript">
+
+  var images = ['neuro-1.jpg', 'neuro-2.jpg', 'neuro-3.jpg' ];
+  document.getElementsByClassName('video-background')[0].style.backgroundImage = 'url(images/' + images[Math.floor(Math.random() * images.length)] + ')';
+
+</script>
+
+<noscript>
+    <style>
+    	#nojsmenu {display: block;}
+        #nojs {display:none;}
+    </style>
+</noscript>
+</body>
+</html>
